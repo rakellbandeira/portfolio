@@ -9,6 +9,12 @@ function setLanguage() {
 }
 
 function updateContent() {
+    // Check if translations are loaded
+    if (typeof translations === 'undefined' || Object.keys(translations).length === 0) {
+        setTimeout(updateContent, 100); // Retry after 100ms
+        return;
+    }
+    
     // Update all elements with data-translate attribute
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');

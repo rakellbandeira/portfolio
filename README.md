@@ -19,3 +19,9 @@ A terminal-style portfolio website with multilingual support (English/Portuguese
 - Type `.get about Rakell` to see about section
 - Type `.get projects` to see projects list
 - Type `.get contact` to see contact form
+
+## Details about image repo placing
+- logo.png in assets/images/
+- profile.jpg in assets/images/
+- Project screenshots in assets/images/projects/
+- Flag icons (en.svg, pt.svg) in assets/flags/

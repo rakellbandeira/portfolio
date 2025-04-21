@@ -1,4 +1,3 @@
-
 {
     "en": {
         "greeting": "Hi, I'm Rakell, a software development student",
@@ -24,9 +23,9 @@
         "greeting": "Olá, sou Rakell, um estudante de desenvolvimento de software",
         "terminal_prompt": "Digite o que deseja ver no console:",
         "welcome": "Bem-vindo à minha aplicação pessoal v.1.0",
-        "about_command": "'Digite '.get about Rakell' para saber mais sobre mim.",
-        "projects_command": "'Digite '.get projects' para ver meus projetos anteriores.",
-        "contact_command": "'Digite '.get contact' para me enviar um email.",
+        "about_command": "Digite '.get about Rakell' para saber mais sobre mim.",
+        "projects_command": "Digite '.get projects' para ver meus projetos anteriores.",
+        "contact_command": "Digite '.get contact' para me enviar um email.",
         "download_cv": "Baixar CV",
         "copyright": "© 2025 — Rakell Bandeira",
         "about_title": "Sobre Mim",

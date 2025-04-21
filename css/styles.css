@@ -19,6 +19,8 @@ body {
     color: var(--text-color);
     min-height: 100vh;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Language Popup */
@@ -138,6 +140,7 @@ nav {
 .terminal-input {
     display: flex;
     align-items: center;
+    cursor: text;
 }
 
 .terminal-input input {
@@ -149,7 +152,28 @@ nav {
     outline: none;
     flex: 1;
     width: 100%;
+    /* Cute blinking cursor effect */
+    caret-color: var(--terminal-text);
 }
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.terminal-input::after {
+    content: '_';
+    color: var(--terminal-text);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    display: inline-block;
+}
+
+/* On focus, hide the fake cursor */
+.terminal-input:focus-within::after {
+    display: none;
+}
+
+
 
 .prompt {
     color: var(--terminal-text);
@@ -322,6 +346,156 @@ nav {
     margin-top: 1rem;
 }
 
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.terminal-input input {
+    background: none;
+    border: none;
+    color: var(--terminal-text);
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    flex: 1;
+    width: 100%;
+    caret-color: var(--terminal-text);
+}
+
+/* Blinking cursor effect */
+.terminal-input::after {
+    content: '_';
+    color: var(--terminal-text);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Hover effects */
+.projects-section a {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-section a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.projects-section a:hover::after {
+    width: 100%;
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+
+/* Project card hover effect */
+.detail-item {
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Button hover animations */
+.project-button,
+.download-cv {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-button:hover,
+.download-cv:hover {
+    transform: translateY(-2px);
+}
+
+.project-button::before,
+.download-cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.project-button:hover::before,
+.download-cv:hover::before {
+    left: 100%;
+}
+
+
+.project-page-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 2rem;
+    flex: 1;
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-message h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+
+.back-link:hover {
+    opacity: 0.9;
+}
+
+.project-detail {
+    padding: 0;
+}
+
+
+
 /* Footer */
 footer {
     background: #000;
@@ -329,7 +503,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: relative;
+    margin-top: auto;
     bottom: 0;
     width: 100%;
 }
@@ -371,9 +546,58 @@ footer {
         margin-bottom: 2rem;
     }
     
+    .terminal {
+        font-size: 14px;
+    }
+    
+    .terminal-header {
+        font-size: 12px;
+    }
+    
+    .project-detail {
+        padding: 1rem;
+    }
+    
+    .image-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
     footer {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo {
+        height: 30px;
+    }
+    
+    .language-selector {
+        padding: 0.3rem 0.8rem;
+        font-size: 14px;
+    }
+    
+    .left-column h1 {
+        font-size: 1.5rem;
+    }
+    
+    .terminal {
+        padding: 0.8rem;
+    }
+    
+    .stack-item {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+    
+    .project-button {
+        padding: 0.8rem 1.5rem;
     }
 }

@@ -1,3 +1,4 @@
+// For this solution, update your terminal.js to use standard links
 function initializeTerminal() {
     const terminalInput = document.getElementById('terminalInput');
     
@@ -10,9 +11,45 @@ function initializeTerminal() {
     });
 }
 
-function handleCommand(command) {
+async function loadProjectsList() {
+    try {
+        const projects = [];
+        
+        for (let i = 1; i <= 3; i++) {
+            try {
+                const response = await fetch(`projects/project-${i}.json`);
+                if (response.ok) {
+                    const projectData = await response.json();
+                    const lang = localStorage.getItem('language') || 'en';
+                    projects.push({
+                        id: i,
+                        name: projectData[lang].project
+                    });
+                }
+            } catch (error) {
+                console.log(`Project ${i} not found`);
+            }
+        }
+        
+        return projects;
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        return [];
+    }
+}
+
+async function handleCommand(command) {
     const contentArea = document.getElementById('contentArea');
-    const t = translations[currentLanguage];
+    const currentLang = localStorage.getItem('language') || 'en';
+    
+    // Check if translations are loaded
+    if (typeof translations === 'undefined' || Object.keys(translations).length === 0) {
+        contentArea.innerHTML = '<p>Loading translations...</p>';
+        return;
+    }
+    
+    // Get translations for current language
+    const t = translations[currentLang];
     
     switch(command.toLowerCase()) {
         case '.get about rakell':
@@ -26,23 +63,30 @@ function handleCommand(command) {
             break;
             
         case '.get projects':
-            // Load projects list
-            const projects = [
-                { id: '1', name: 'Real-Time Vehicle Tracker' },
-                { id: '2', name: 'E-commerce Platform' },
-                { id: '3', name: 'Task Management System' }
-            ];
+            // Show loading indicator
+            contentArea.innerHTML = '<p>Loading projects...</p>';
             
-            contentArea.innerHTML = `
-                <div class="projects-section">
-                    <h2>${t.projects_title}</h2>
-                    <ul>
-                        ${projects.map(project => `
-                            <li><a href="#/project/${project.id}">${project.name}</a></li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
+            const projects = await loadProjectsList();
+            
+            if (projects.length > 0) {
+                contentArea.innerHTML = `
+                    <div class="projects-section">
+                        <h2>${t.projects_title}</h2>
+                        <ul>
+                            ${projects.map(project => `
+                                <li><a href="project.html?id=${project.id}">${project.name}</a></li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            } else {
+                contentArea.innerHTML = `
+                    <div class="projects-section">
+                        <h2>${t.projects_title}</h2>
+                        <p>No projects found.</p>
+                    </div>
+                `;
+            }
             break;
             
         case '.get contact':
@@ -57,7 +101,6 @@ function handleCommand(command) {
                 </div>
             `;
             
-            // Add form submit handler
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Form submitted! (This is a demo)');
