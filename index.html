@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakell's Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Language Selection Popup -->
+    <div class="language-popup" id="languagePopup">
+        <div class="language-popup-content">
+            <h2>Choose your language</h2>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="pt">Português</option>
+            </select>
+            <button onclick="setLanguage()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <img src="assets/images/logo.png" alt="Logo" class="logo">
+        <select class="language-selector" id="navLanguageSelector">
+            <option value="en">English</option>
+            <option value="pt">Português</option>
+        </select>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="left-column">
+            <h1 data-translate="greeting">Hi, I'm Rakell, a software development student</h1>
+            <p data-translate="terminal_prompt">Type what you wish to see in the console:</p>
+            
+            <div class="terminal">
+                <div class="terminal-header">
+                    PS C:\Users\Rakell\Documents\Portfolio><br><br>
+                    <span data-translate="welcome">Welcome to my personal application v.1.0</span><br><br>
+                    <span data-translate="about_command">Type ".get about Rakell" to get to know more about me.</span><br>
+                    <span data-translate="projects_command">Type ".get projects" to see my past projects.</span><br>
+                    <span data-translate="contact_command">Type ".get contact" to email me something.</span><br><br>
+                </div>
+                <div class="terminal-input">
+                    <span class="prompt">></span>
+                    <input type="text" id="terminalInput" autofocus>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-column content-area" id="contentArea">
+            <!-- Dynamic content will be loaded here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <a href="#" class="download-cv" data-translate="download_cv">Download CV</a>
+            <a href="https://linkedin.com/in/rakell" class="social-link" target="_blank">LinkedIn</a>
+        </div>
+        <div class="copyright" data-translate="copyright">© 2025 — Rakell Bandeira</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/translations.json"></script>
+    <script src="js/language.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

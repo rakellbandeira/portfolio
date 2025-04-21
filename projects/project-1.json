@@ -1,0 +1,52 @@
+{
+    "pt": {
+        "project": "Real-Time Vehicle Tracker v1.0.",
+        "shortDescription": "Aplicação web que mostra as localizações da frota em tempo real",
+        "image": "assets/images/projects/vehicle-tracker.jpg",
+        "subTitle": "Uma solução moderna para rastreamento de veículos",
+        "stack": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Google Maps API"
+        ],
+        "button_name": "VISITE O WEBSITE",
+        "button_link": "https://example.com",
+        "imageDetails": {
+            "title1": "O desafio",
+            "description1": "O cliente procurava um sistema de acompanhamento para sua pequena empresa, porém as soluções existentes no mercado eram extremamente caras.",
+            "image1": "assets/images/projects/challenge.jpg",
+            "title2": "Abordagem",
+            "description2": "Utilizei HTML, CSS e JavaScript para criar uma experiência amigável e responsiva.",
+            "image2": "assets/images/projects/approach.jpg",
+            "title3": "Resultados",
+            "description3": "O sistema reduziu os custos operacionais em 40% e melhorou a eficiência da frota.",
+            "image3": "assets/images/projects/results.jpg"
+        }
+    },
+    "en": {
+        "project": "Real-Time Vehicle Tracker v1.0.",
+        "shortDescription": "A web app that displays fleet's locations in real-time",
+        "image": "assets/images/projects/vehicle-tracker.jpg",
+        "subTitle": "A modern solution for vehicle tracking",
+        "stack": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Google Maps API"
+        ],
+        "button_name": "VISIT WEBSITE",
+        "button_link": "https://example.com",
+        "imageDetails": {
+            "title1": "The Challenge",
+            "description1": "The client was seeking a tracking system for his small business but existing solutions were extremely expensive.",
+            "image1": "assets/images/projects/challenge.jpg",
+            "title2": "Approach",
+            "description2": "I used HTML, CSS and JavaScript to create user-friendly and responsive experience.",
+            "image2": "assets/images/projects/approach.jpg",
+            "title3": "Results",
+            "description3": "The system reduced operational costs by 40% and improved fleet efficiency.",
+            "image3": "assets/images/projects/results.jpg"
+        }
+    }
+}
