@@ -55,7 +55,7 @@ async function handleCommand(command) {
         case '.get about rakell':
             contentArea.innerHTML = `
                 <div class="about-section">
-                    <img src="assets/images/profile.jpg" alt="Rakell">
+                    <img src="assets/images/profile.png" alt="Rakell">
                     <h2>${t.about_title}</h2>
                     <p>${t.about_text}</p>
                 </div>
